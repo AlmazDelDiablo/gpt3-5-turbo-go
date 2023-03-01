@@ -21,7 +21,7 @@ func main() {
 		Model: gpt35.ModelGpt35Turbo,
 		Messages: []*gpt35.Message{
 			{
-				Role:    "user",
+				Role:    gpt35.RoleUser,
 				Content: "Hello",
 			},
 		},
