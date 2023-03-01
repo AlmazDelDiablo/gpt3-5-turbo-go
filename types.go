@@ -1,8 +1,11 @@
 package gpt35
 
+type RoleType string
+type ModelType string
+
 type Request struct {
-	Model            string      `json:"model"`
-	Messages         []Message   `json:"messages"`
+	Model            ModelType   `json:"model"`
+	Messages         []*Message  `json:"messages"`
 	Temperature      float64     `json:"temperature,omitempty"`
 	TopP             float64     `json:"top_p,omitempty"`
 	N                int         `json:"n,omitempty"`
@@ -15,23 +18,23 @@ type Request struct {
 }
 
 type Response struct {
-	ID      string   `json:"id"`
-	Object  string   `json:"object"`
-	Created int64    `json:"created"`
-	Choices []Choice `json:"choices"`
-	Usage   Usage    `json:"usage"`
-	Error   Error    `json:"error,omitempty"`
+	ID      string    `json:"id"`
+	Object  string    `json:"object"`
+	Created int64     `json:"created"`
+	Choices []*Choice `json:"choices"`
+	Usage   *Usage    `json:"usage"`
+	Error   *Error    `json:"error,omitempty"`
 }
 
 type Message struct {
-	Role    string `json:"role,omitempty"`
-	Content string `json:"content"`
+	Role    RoleType `json:"role,omitempty"`
+	Content string   `json:"content"`
 }
 
 type Choice struct {
-	Index        int     `json:"index"`
-	Message      Message `json:"message"`
-	FinishReason string  `json:"finish_reason"`
+	Index        int      `json:"index"`
+	Message      *Message `json:"message"`
+	FinishReason string   `json:"finish_reason"`
 }
 
 type Usage struct {

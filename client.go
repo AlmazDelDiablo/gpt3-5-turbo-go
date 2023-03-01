@@ -8,6 +8,14 @@ import (
 
 const ModelGpt35Turbo = "gpt-3.5-turbo"
 
+const MaxTokensGpt35Turbo = 4096
+
+const (
+	RoleUser      RoleType = "user"
+	RoleAssistant RoleType = "assistant"
+	RoleSystem    RoleType = "system"
+)
+
 const DefaultUrl = "https://api.openai.com/v1/chat/completions"
 
 type Client struct {
