@@ -11,6 +11,7 @@ type Request struct {
 	N                int         `json:"n,omitempty"`
 	Stream           bool        `json:"stream,omitempty"`
 	Stop             interface{} `json:"stop,omitempty"`
+	MaxTokens        int         `json:"max_tokens,omitempty"`
 	PresencePenalty  float64     `json:"presence_penalty,omitempty"`
 	FrequencyPenalty float64     `json:"frequency_penalty,omitempty"`
 	LogitBias        interface{} `json:"logit_bias,omitempty"`
