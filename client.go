@@ -27,9 +27,9 @@ type Client struct {
 
 // ClientOptions contains parameters for Client initialization
 type ClientOptions struct {
-	// HTTP tansport
+	// HTTP transport
 	Transport http.RoundTripper
-	// Base url of OpelAI API
+	// Base url of OpenAI API
 	URL string
 }
 
@@ -78,7 +78,7 @@ func NewClient(apiKey string, opts ...OptionFunc) (*Client, error) {
 	}, nil
 }
 
-// GetChat returns returns chat.
+// GetChat returns chat.
 func (c *Client) GetChat(r *Request) (*Response, error) {
 	buf := bytes.NewBuffer(nil)
 	if err := json.NewEncoder(buf).Encode(r); err != nil {
@@ -99,8 +99,8 @@ func (c *Client) GetChat(r *Request) (*Response, error) {
 	}
 
 	defer func() {
-		io.Copy(io.Discard, resp.Body)
-		resp.Body.Close()
+		_, _ = io.Copy(io.Discard, resp.Body)
+		_ = resp.Body.Close()
 	}()
 
 	var result Response
