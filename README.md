@@ -16,7 +16,7 @@ import (
 )
 
 func main() {
-	c := gpt35.NewClient("sk-xxxxxxxxxxxxxxxxxxxx")
+	c, _ := gpt35.NewClient("sk-xxxxxxxxxxxxxxxxxxxx")
 	req := &gpt35.Request{
 		Model: gpt35.ModelGpt35Turbo,
 		Messages: []*gpt35.Message{
